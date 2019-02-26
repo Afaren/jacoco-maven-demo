@@ -18,13 +18,6 @@ public class UserTest {
     }
 
     @Test
-    public void should_greet_person_with_name() {
-        User user = new User();
-        assertThat(user.greet("afar"))
-                .isEqualTo("Hello afar");
-    }
-
-    @Test
     public void should_greet_person_without_name() {
         User user = new User();
         assertThat(user.greet(null))
