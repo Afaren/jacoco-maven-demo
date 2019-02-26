@@ -26,4 +26,59 @@ $  ./mvnw clean verify
 点击进入 class 文件内部，可以查看每一行代码的测试覆盖情况
 
 
-  
+## 测试覆盖率配置
+当前项目只在 `pom.xml` 中配置了 ***分支覆盖率***，配置如下： 
+
+```xml
+...
+                        <configuration>
+                            <rules>
+                                <rule>
+                                    <element>BUNDLE</element>
+                                    <limits>
+                                        <limit>
+                                            <counter>COMPLEXITY</counter>
+                                            <value>COVEREDRATIO</value>
+                                            <minimum>0.60</minimum>
+                                        </limit>
+                                     </limits>
+                                </rule>
+                            </rules>
+                        </configuration>
+                    </execution>
+...
+
+```
+如果要添加其他类型的覆盖率配置，请参考 
+[jacoco doc](https://www.eclemma.org/jacoco/trunk/doc/counters.html)
+
+比如，使用下面的配置就可以配置 `复杂度` 及 `分支` 两种覆盖率。
+
+```xml
+...
+                        <configuration>
+                            <rules>
+                                <rule>
+                                    <element>BUNDLE</element>
+                                    <limits>
+                                        <limit>
+                                            <counter>COMPLEXITY</counter>
+                                            <value>COVEREDRATIO</value>
+                                            <minimum>0.60</minimum>
+                                        </limit>
+                                        <limit>
+                                            <counter>BRANCHES</counter>
+                                            <value>COVEREDRATIO</value>
+                                            <minimum>1</minimum>
+                                        </limit>
+                                    </limits>
+                                </rule>
+                            </rules>
+                        </configuration>
+                    </execution>
+...
+
+```
+
+重新执行命令，得到如下结果：
+![](./images/jacoco-ratio.jpeg)
