@@ -7,7 +7,7 @@
 $  ./mvnw clean verify 
 ```
 
-浏览器 `target/site/jacoco/index.html`，在浏览器中即可见到
+在浏览器打开 `target/site/jacoco/index.html`，在浏览器中即可见到
 
 ![](./images/jacoco-1.png)
 
